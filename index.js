@@ -37,3 +37,25 @@ server.post('/addEmployee',(req,res)=>{
        res.status(result.statusCode).json(result)
     })
 }) 
+
+
+//Delete employee
+server.delete('/deleteEmployee/:id',(req,res)=>{
+    logic.removeEmp(req.params.id,).then(result=>{
+       res.status(result.statusCode).json(result)
+    })
+}) 
+
+
+//Edit employee 
+server.get('/getAnEmp/:id',(req,res)=>{
+    logic.getAnEmp(req.params.id).then(result=>{
+       res.status(result.statusCode).json(result)
+    })
+}) 
+
+server.post('/editEmp',(req,res)=>{
+    logic.editEmp(req.body.id, req.body.uname, req.body.age, req.body.designation, req.body.salary).then(result=>{
+       res.status(result.statusCode).json(result)
+    })
+}) 
